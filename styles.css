@@ -195,3 +195,4 @@ img { max-width: 100%; height: auto; display: block; }
   box-shadow: var(--shadow-sm); transition: var(--transition);
 }
 .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+/* FLORARY Beauty - deployed 2026-03-26T03:26:35Z */
