@@ -85,10 +85,10 @@ img { max-width: 100%; height: auto; display: block; }
 .nav-links a.active { color: var(--crimson); }
 
 .nav-cta {
-  background: var(--crimson); color: var(--white) !important; padding: 10px 22px;
-  border-radius: 8px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em;
+  background: var(--crimson); color: var(--white) !important; padding: 12px 28px;
+  border-radius: 8px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.06em;
   text-transform: uppercase; transition: var(--transition); display: inline-block;
-  white-space: nowrap; line-height: 1;
+  white-space: nowrap; line-height: 1.2;
 }
 .nav-cta:hover { background: var(--crimson-dark); transform: translateY(-1px); box-shadow: 0 4px 15px rgba(154,14,14,0.25); }
 
