@@ -1,5 +1,5 @@
 /* ============================================
-   FLORARY Beauty â Global Scripts
+   FLORARY Beauty — Global Scripts
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {

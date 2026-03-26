@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collagen Eye Patches — FLORARY Beauty</title>
+  <meta name="description" content="FLORARY Premium Collagen Eye Patches with Marine Collagen, Hyaluronic Acid, and 24K Gold. 60 patches per jar. Korean beauty innovation.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .product-hero { padding: 120px 0 80px; }
+    .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+
+    /* Gallery */
+    .gallery { position: sticky; top: 100px; }
+    .gallery-main { border-radius: var(--radius); overflow: hidden; background: var(--white); margin-bottom: 12px; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; }
+    .gallery-main img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; cursor: zoom-in; }
+    .gallery-main:hover img { transform: scale(1.05); }
+    .gallery-thumbs { display: flex; gap: 8px; }
+    .gallery-thumb { width: 80px; height: 80px; border-radius: 8px; overflow: hidden; cursor: pointer; border: 2px solid transparent; transition: var(--transition); opacity: 0.6; }
+    .gallery-thumb.active, .gallery-thumb:hover { border-color: var(--crimson); opacity: 1; }
+    .gallery-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* Product info */
+    .product-info { padding-top: 12px; }
+    .product-tag { display: inline-flex; align-items: center; gap: 6px; background: rgba(107,155,143,0.12); color: var(--sage); padding: 6px 14px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 16px; }
+    .product-title { font-size: 2.2rem; margin-bottom: 8px; }
+    .product-rating { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; color: var(--gold); }
+    .product-rating span { color: var(--text-light); font-size: 0.85rem; }
+    .product-price { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--crimson); margin-bottom: 4px; }
+    .product-price-note { font-size: 0.85rem; color: var(--text-light); margin-bottom: 24px; }
+    .product-desc { font-size: 1rem; color: var(--text-light); line-height: 1.8; margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+
+    /* Key features list */
+    .key-features { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 28px; }
+    .key-feature { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; padding: 10px 14px; background: var(--cream); border-radius: 8px; }
+    .key-feature-icon { font-size: 1.1rem; }
+
+    /* Quantity + Buy */
+    .buy-section { display: flex; gap: 12px; align-items: center; margin-bottom: 20px; }
+    .qty { display: flex; align-items: center; border: 2px solid var(--border); border-radius: 50px; overflow: hidden; }
+    .qty button { width: 44px; height: 44px; border: none; background: none; font-size: 1.2rem; cursor: pointer; color: var(--text); transition: var(--transition); }
+    .qty button:hover { background: var(--cream); }
+    .qty-num { width: 40px; text-align: center; font-weight: 600; font-size: 1rem; }
+    .buy-btn { flex: 1; }
+
+    .guarantee { display: flex; align-items: center; gap: 10px; padding: 16px; background: rgba(107,155,143,0.08); border-radius: var(--radius); font-size: 0.85rem; color: var(--text-light); margin-bottom: 24px; }
+    .guarantee strong { color: var(--sage); }
+
+    /* Tabs */
+    .tabs { margin-top: 80px; }
+    .tab-headers { display: flex; gap: 0; border-bottom: 2px solid var(--border); }
+    .tab-header { padding: 14px 28px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; color: var(--text-light); border-bottom: 2px solid transparent; margin-bottom: -2px; transition: var(--transition); }
+    .tab-header.active { color: var(--crimson); border-bottom-color: var(--crimson); }
+    .tab-content { display: none; padding: 32px 0; }
+    .tab-content.active { display: block; }
+    .tab-content h3 { font-family: 'Inter', sans-serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 12px; }
+    .tab-content p, .tab-content li { font-size: 0.95rem; color: var(--text-light); line-height: 1.8; }
+    .tab-content ul { padding-left: 20px; margin-bottom: 16px; }
+    .tab-content ul li { margin-bottom: 8px; }
+
+    /* Related */
+    .related { background: var(--white); }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
+    .related-card { background: var(--cream); border-radius: var(--radius); padding: 24px; text-align: center; transition: var(--transition); }
+    .related-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .related-card img { border-radius: 12px; margin-bottom: 16px; height: 200px; object-fit: cover; width: 100%; }
+    .related-card h4 { font-family: 'Inter', sans-serif; font-weight: 600; margin-bottom: 4px; }
+    .related-card .price { color: var(--crimson); font-weight: 600; }
+
+    @media (max-width: 768px) {
+      .product-grid { grid-template-columns: 1fr; }
+      .gallery { position: static; }
+      .key-features { grid-template-columns: 1fr; }
+      .related-grid { grid-template-columns: 1fr; }
+      .tab-headers { overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="preloader"><div class="preloader-logo">FLORARY</div><div class="preloader-bar"></div></div>
+<div class="scroll-progress"></div>
+
+<nav class="nav">
+  <div class="nav-overlay"></div>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">FLORARY</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="product.html" class="active">Product</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="product.html" class="nav-cta">Shop Now</a>
+    </div>
+    <div class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open');document.querySelector('.nav-overlay').classList.toggle('show')">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<section class="product-hero">
+  <div class="container">
+    <div class="product-grid">
+      <!-- Gallery -->
+      <div class="gallery reveal-left">
+        <div class="gallery-main">
+          <img id="mainImg" src="images/1-hero.png" alt="FLORARY Collagen Eye Patches">
+        </div>
+        <div class="gallery-thumbs">
+          <div class="gallery-thumb active" onclick="switchImg(this, 'images/1-hero.png')"><img src="images/1-hero.png" alt=""></div>
+          <div class="gallery-thumb" onclick="switchImg(this, 'images/2-model.png')"><img src="images/2-model.png" alt=""></div>
+          <div class="gallery-thumb" onclick="switchImg(this, 'images/6-ingredients.png')"><img src="images/6-ingredients.png" alt=""></div>
+          <div class="gallery-thumb" onclick="switchImg(this, 'images/10-unboxing.png')"><img src="images/10-unboxing.png" alt=""></div>
+          <div class="gallery-thumb" onclick="switchImg(this, 'images/3-step-open.png')"><img src="images/3-step-open.png" alt=""></div>
+        </div>
+      </div>
+
+      <!-- Product info -->
+      <div class="product-info reveal-right">
+        <div class="product-tag">&#127472;&#127479; 100% Natural Korean Formula</div>
+        <h1 class="product-title">Premium Collagen Eye Patches</h1>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
+          <span style="font-size:0.7rem;font-weight:600;padding:4px 10px;border-radius:50px;background:rgba(107,155,143,0.1);color:var(--sage);">&#127807; 100% Natural</span>
+          <span style="font-size:0.7rem;font-weight:600;padding:4px 10px;border-radius:50px;background:rgba(107,155,143,0.1);color:var(--sage);">&#128062; Cruelty Free</span>
+          <span style="font-size:0.7rem;font-weight:600;padding:4px 10px;border-radius:50px;background:rgba(107,155,143,0.1);color:var(--sage);">&#10006; Zero Parabens</span>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:4px;">
+          <div class="product-price">$24.99</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--text-light);text-decoration:line-through;opacity:0.5;">$34.99</div>
+          <span style="background:var(--crimson);color:white;font-size:0.7rem;font-weight:700;padding:4px 10px;border-radius:50px;letter-spacing:0.05em;">SAVE 29%</span>
+        </div>
+        <div class="product-price-note">60 patches per jar &middot; $0.42 per treatment &middot; Free shipping</div>
+
+        <p class="product-desc">Transform your under-eye area with Seoul's cleanest collagen formula. 100% natural ingredients &mdash; marine collagen, triple hyaluronic acid &amp; 24K gold &mdash; in a pure, paraben-free hydrogel patch. Visibly brighter, firmer skin in just 20 minutes. No toxins, no compromise.</p>
+
+        <div class="key-features">
+          <div class="key-feature"><span class="key-feature-icon">&#129516;</span> Marine Collagen</div>
+          <div class="key-feature"><span class="key-feature-icon">&#128167;</span> Hyaluronic Acid</div>
+          <div class="key-feature"><span class="key-feature-icon">&#10024;</span> 24K Gold Particles</div>
+          <div class="key-feature"><span class="key-feature-icon">&#127808;</span> Green Tea Extract</div>
+          <div class="key-feature"><span class="key-feature-icon">&#128062;</span> Cruelty Free</div>
+          <div class="key-feature"><span class="key-feature-icon">&#127472;&#127479;</span> Made in Korea</div>
+        </div>
+
+        <div class="buy-section">
+          <div class="qty">
+            <button onclick="changeQty(-1)">-</button>
+            <span class="qty-num" id="qtyNum">1</span>
+            <button onclick="changeQty(1)">+</button>
+          </div>
+          <a href="#waitlist-product" class="btn btn-primary buy-btn">Join Waitlist &mdash; 20% Off &rarr;</a>
+        </div>
+
+        <div class="guarantee">
+          <span style="font-size: 1.3rem;">&#128737;</span>
+          <div><strong>30-Day Money Back Guarantee.</strong> Not in love? Full refund, no questions asked.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs reveal">
+      <div class="tab-headers">
+        <div class="tab-header active" onclick="switchTab(0)">Description</div>
+        <div class="tab-header" onclick="switchTab(1)">Ingredients</div>
+        <div class="tab-header" onclick="switchTab(2)">How to Use</div>
+        <div class="tab-header" onclick="switchTab(3)">Shipping</div>
+      </div>
+      <div class="tab-content active">
+        <h3>About This Product</h3>
+        <p>FLORARY Premium Collagen Eye Patches are formulated in Seoul's leading cosmetic laboratories, combining traditional Korean beauty wisdom with modern dermatological science. Each hydrogel patch is saturated with a concentrated serum of marine collagen peptides, three molecular weights of hyaluronic acid, 24K gold nanoparticles, and botanical extracts.</p>
+        <br>
+        <p>The unique hydrogel delivery system ensures maximum absorption, while the ergonomic shape hugs your under-eye contour for a seamless fit. Use daily for best results — most customers notice visible improvement within 7 days.</p>
+      </div>
+      <div class="tab-content">
+        <h3>Full Ingredient List</h3>
+        <p>Water, Hydrolyzed Collagen, Glycerin, Chondrus Crispus Extract, Ceratonia Siliqua Gum, Hyaluronic Acid, Niacinamide, Gold (24K), Camellia Sinensis Leaf Extract, Aloe Barbadensis Leaf Extract, Rosa Damascena Flower Water, Ceramide NP, Adenosine, Allantoin, Panthenol, Tocopheryl Acetate, Retinyl Palmitate, Sodium Hyaluronate, Beta-Glucan</p>
+        <br>
+        <h3>Key Active Ingredients</h3>
+        <ul>
+          <li><strong>Marine Collagen Peptides</strong> — Small-molecule collagen for deep penetration and wrinkle reduction</li>
+          <li><strong>Triple-Weight Hyaluronic Acid</strong> — Hydrates at surface, mid, and deep skin layers</li>
+          <li><strong>24K Gold Nanoparticles</strong> — Boosts circulation and delivers antioxidant protection</li>
+          <li><strong>Niacinamide (Vitamin B3)</strong> — Brightens dark circles and evens skin tone</li>
+          <li><strong>Camellia Sinensis (Green Tea)</strong> — Powerful anti-inflammatory and antioxidant</li>
+          <li><strong>Adenosine</strong> — Clinically proven anti-wrinkle ingredient</li>
+        </ul>
+      </div>
+      <div class="tab-content">
+        <h3>How to Use</h3>
+        <ul>
+          <li>Cleanse and tone your face as usual</li>
+          <li>Use the included spatula to lift one pair of patches</li>
+          <li>Apply to clean, dry under-eye area with the wider end toward the outer corner</li>
+          <li>Leave on for 15-20 minutes</li>
+          <li>Remove and gently pat remaining serum into skin</li>
+          <li>Use daily for best results, morning or evening</li>
+        </ul>
+        <br>
+        <p><strong>Pro Tip:</strong> Refrigerate for an extra cooling, de-puffing effect. Can also be applied to forehead lines, smile lines, or neck.</p>
+      </div>
+      <div class="tab-content">
+        <h3>Shipping &amp; Returns</h3>
+        <ul>
+          <li><strong>Free Standard Shipping</strong> on all US orders</li>
+          <li><strong>Express Shipping</strong> available for $4.99 (2-3 business days)</li>
+          <li>International shipping available to 30+ countries</li>
+          <li><strong>30-Day Money Back Guarantee</strong> — full refund if you're not satisfied</li>
+          <li>Ships within 24 hours on business days</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Before & After -->
+<section class="section" style="background:var(--white);">
+  <div class="container text-center">
+    <div class="section-label reveal">Real Results</div>
+    <h2 class="section-title reveal">What to <span class="gradient-text">Expect</span></h2>
+    <p class="section-subtitle mx-auto reveal">Consistent use delivers visible transformation. Here's the typical timeline our testers reported.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:24px;margin-top:40px;">
+      <div class="card reveal" style="padding:32px;text-align:center;border-left:4px solid var(--sage);">
+        <div style="font-size:2.5rem;margin-bottom:12px;">&#128197;</div>
+        <h3 style="font-family:'Inter',sans-serif;font-size:1rem;font-weight:600;margin-bottom:8px;">Day 1</h3>
+        <p style="font-size:0.9rem;color:var(--text-light);line-height:1.7;">Instant cooling relief. Skin feels hydrated and refreshed immediately after first application.</p>
+      </div>
+      <div class="card reveal" style="padding:32px;text-align:center;border-left:4px solid var(--gold);transition-delay:0.1s;">
+        <div style="font-size:2.5rem;margin-bottom:12px;">&#128293;</div>
+        <h3 style="font-family:'Inter',sans-serif;font-size:1rem;font-weight:600;margin-bottom:8px;">Week 1</h3>
+        <p style="font-size:0.9rem;color:var(--text-light);line-height:1.7;">Puffiness visibly reduced. Under-eye area appears smoother and more luminous. Fine lines softened.</p>
+      </div>
+      <div class="card reveal" style="padding:32px;text-align:center;border-left:4px solid var(--crimson);transition-delay:0.2s;">
+        <div style="font-size:2.5rem;margin-bottom:12px;">&#10024;</div>
+        <h3 style="font-family:'Inter',sans-serif;font-size:1rem;font-weight:600;margin-bottom:8px;">Week 4</h3>
+        <p style="font-size:0.9rem;color:var(--text-light);line-height:1.7;">Dark circles significantly faded. Skin elasticity improved. Friends ask what your secret is.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLORARY vs Competitors -->
+<section class="section">
+  <div class="container text-center">
+    <div class="section-label reveal">Compare</div>
+    <h2 class="section-title reveal">Why FLORARY <span class="gradient-text">Wins</span></h2>
+    <p class="section-subtitle mx-auto reveal">See how we compare to other popular eye patch brands on Amazon.</p>
+    <div style="overflow-x:auto;margin-top:40px;" class="reveal">
+      <table style="width:100%;border-collapse:collapse;font-size:0.9rem;min-width:600px;">
+        <thead>
+          <tr style="border-bottom:2px solid var(--crimson);">
+            <th style="padding:14px 16px;text-align:left;font-weight:600;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-light);">Feature</th>
+            <th style="padding:14px 16px;text-align:center;font-weight:700;color:var(--crimson);background:rgba(154,14,14,0.04);border-radius:12px 12px 0 0;">FLORARY</th>
+            <th style="padding:14px 16px;text-align:center;font-weight:600;color:var(--text-light);">Brand A</th>
+            <th style="padding:14px 16px;text-align:center;font-weight:600;color:var(--text-light);">Brand B</th>
+            <th style="padding:14px 16px;text-align:center;font-weight:600;color:var(--text-light);">Brand C</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px 16px;font-weight:500;">Made in Korea</td>
+            <td style="padding:12px 16px;text-align:center;background:rgba(154,14,14,0.04);font-size:1.1rem;">&#9989;</td>
+            <td style="padding:12px 16px;text-align:center;">&#9989;</td>
+            <td style="padding:12px 16px;text-align:center;color:var(--text-light);">&#10060;</td>
+            <td style="padding:12px 16px;text-align:center;">&#9989;</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px 16px;font-weight:500;">100% Natural Formula</td>
+            <td style="padding:12px 16px;text-align:center;background:rgba(154,14,14,0.04);font-size:1.1rem;">&#9989;</td>
+            <td style="padding:12px 16px;text-align:center;color:var(--text-light);">&#10060;</td>
+            <td style="padding:12px 16px;text-align:center;color:var(--text-light);">&#10060;</td>
+            <td style="padding:12px 16px;text-align:center;color:var(--text-light);">&#10060;</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px 16px;font-weight:500;">Marine Collagen</td>
+            <td style="padding:12px 16px;text-align:center;background:rgba(154,14,14,0.04);font-size:1.1rem;">&#9989;</td>
+            <td style="padding:12px 16px;text-align:center;">&#9989;</td>
+            <td style="padding:12px 16px;text-align:center;">&#9989;</td>
+            <td style="padding:12px 16px;text-align:center;color:var(--text-light);">&#10060;</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px 16px;font-weight:500;">24K Gold</td>
+            <td style="padding:12px 16px;text-align:center;background:rgba(154,14,14,0.04);font-size:1.1rem;">&#9989;</td>
+            <td style="padding:12px 16px;text-align:center;color:var(--text-light);">&#10060;</td>
+            <td style="padding:12px 16px;text-align:center;">&#9989;</td>
+            <td style="padding:12px 16px;text-align:center;">&#9989;</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px 16px;font-weight:500;">Paraben Free</td>
+            <td style="padding:12px 16px;text-align:center;background:rgba(154,14,14,0.04);font-size:1.1rem;">&#9989;</td>
+            <td style="padding:12px 16px;text-align:center;color:var(--text-light);">&#10060;</td>
+            <td style="padding:12px 16px;text-align:center;">&#9989;</td>
+            <td style="padding:12px 16px;text-align:center;color:var(--text-light);">&#10060;</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px 16px;font-weight:500;">Cruelty Free</td>
+            <td style="padding:12px 16px;text-align:center;background:rgba(154,14,14,0.04);font-size:1.1rem;">&#9989;</td>
+            <td style="padding:12px 16px;text-align:center;">&#9989;</td>
+            <td style="padding:12px 16px;text-align:center;color:var(--text-light);">&#10060;</td>
+            <td style="padding:12px 16px;text-align:center;">&#9989;</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:12px 16px;font-weight:500;">Triple Hyaluronic Acid</td>
+            <td style="padding:12px 16px;text-align:center;background:rgba(154,14,14,0.04);font-size:1.1rem;">&#9989;</td>
+            <td style="padding:12px 16px;text-align:center;color:var(--text-light);">&#10060;</td>
+            <td style="padding:12px 16px;text-align:center;color:var(--text-light);">&#10060;</td>
+            <td style="padding:12px 16px;text-align:center;color:var(--text-light);">&#10060;</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 16px;font-weight:500;">Price (60 patches)</td>
+            <td style="padding:12px 16px;text-align:center;background:rgba(154,14,14,0.04);font-weight:700;color:var(--crimson);">$24.99</td>
+            <td style="padding:12px 16px;text-align:center;font-weight:600;">$29.99</td>
+            <td style="padding:12px 16px;text-align:center;font-weight:600;">$18.99</td>
+            <td style="padding:12px 16px;text-align:center;font-weight:600;">$32.99</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:16px;font-size:0.75rem;color:var(--text-light);">*Based on publicly available information from Amazon listings as of March 2026. Brand names withheld.</p>
+  </div>
+</section>
+
+<!-- Waitlist -->
+<section id="waitlist-product" style="padding:60px 0;background:linear-gradient(135deg, var(--crimson) 0%, #B01515 100%);color:var(--white);text-align:center;">
+  <div class="container">
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:12px;color:var(--white);">Launching Soon on Amazon</h2>
+    <p style="color:rgba(255,255,255,0.75);margin-bottom:24px;">Be first in line &amp; save 20%. Only 500 spots available.</p>
+    <form onsubmit="event.preventDefault();this.innerHTML='<p style=&quot;font-size:1.2rem;color:white&quot;>&#10003; You&#39;re on the list!</p>';return false;" style="display:flex;gap:12px;max-width:440px;margin:0 auto;flex-wrap:wrap;justify-content:center;">
+      <input type="email" placeholder="Your email" required style="flex:1;min-width:220px;padding:14px 18px;border-radius:50px;border:2px solid rgba(255,255,255,0.5);background:rgba(255,255,255,0.2);color:white;font-family:'Inter',sans-serif;font-size:0.9rem;outline:none;backdrop-filter:blur(4px);">
+      <button type="submit" class="btn btn-gold" style="border:none;cursor:pointer;">Get 20% Off</button>
+    </form>
+  </div>
+</section>
+
+<!-- Related -->
+<section class="section related">
+  <div class="container text-center">
+    <h2 class="section-title reveal">Complete Your Ritual</h2>
+    <div class="related-grid">
+      <div class="related-card reveal">
+        <img src="images/8-morning.webp" alt="Morning routine">
+        <h4>Morning Glow Set</h4>
+        <p class="price">Coming Soon</p>
+      </div>
+      <div class="related-card reveal" style="transition-delay: 0.1s;">
+        <img src="images/9-vanity.webp" alt="Gift set">
+        <h4>Luxury Gift Box</h4>
+        <p class="price">Coming Soon</p>
+      </div>
+      <div class="related-card reveal" style="transition-delay: 0.2s;">
+        <img src="images/10-unboxing.png" alt="Double pack">
+        <h4>Double Pack (Save 15%)</h4>
+        <p class="price">$42.49</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><span class="nav-logo">FLORARY</span><p>100% natural Korean collagen eye patches. Zero parabens. Zero compromise. Crafted in Seoul for women who demand clean beauty.</p></div>
+      <div><h4>Shop</h4><ul><li><a href="product.html">Eye Patches</a></li><li><a href="product.html">Gift Sets</a></li><li><a href="product.html">Bundles</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="about.html">Our Story</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h4>Support</h4><ul><li><a href="contact.html">FAQ</a></li><li><a href="contact.html">Shipping</a></li><li><a href="contact.html">Returns</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 FLORARY Beauty. All rights reserved.</span><div class="footer-socials"><a href="#">IG</a><a href="#">TT</a><a href="#">PI</a></div></div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+function switchImg(el, src) {
+  document.getElementById('mainImg').src = src;
+  document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+}
+let qty = 1;
+function changeQty(d) {
+  qty = Math.max(1, Math.min(10, qty + d));
+  document.getElementById('qtyNum').textContent = qty;
+}
+function switchTab(i) {
+  document.querySelectorAll('.tab-header').forEach((h, idx) => h.classList.toggle('active', idx === i));
+  document.querySelectorAll('.tab-content').forEach((c, idx) => c.classList.toggle('active', idx === i));
+}
+</script>
+</body>
+</html>
