@@ -86,7 +86,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .nav-cta {
   background: var(--crimson); color: var(--white) !important; padding: 12px 28px;
-  border-radius: 8px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.06em;
+  border-radius: 50px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.06em;
   text-transform: uppercase; transition: var(--transition); display: inline-block;
   white-space: nowrap; line-height: 1.2;
 }
@@ -106,7 +106,7 @@ img { max-width: 100%; height: auto; display: block; }
     z-index: 10000;
   }
   .nav-links.open { right: 0; }
-  .nav-links .nav-cta { text-align: center; display: block; padding: 14px 24px; border-radius: 10px; margin-top: 8px; font-size: 0.85rem; }
+  .nav-links .nav-cta { text-align: center; display: block; padding: 14px 24px; border-radius: 50px; margin-top: 8px; font-size: 0.85rem; }
   .nav-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.3); z-index: 9998; opacity: 0; visibility: hidden; pointer-events: none; transition: var(--transition); }
   .nav-overlay.show { opacity: 1; visibility: visible; pointer-events: auto; }
 }
