@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Story — FLORARY Beauty</title>
   <meta name="description" content="FLORARY Beauty was born from a passion for Korean skincare innovation. Discover our story, values, and commitment to bringing luxury beauty to everyone.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:title" content="Our Story — FLORARY Beauty">
+  <meta property="og:description" content="Korean skincare innovation meets clean beauty. Discover the FLORARY story.">
+  <meta property="og:image" content="https://florarybeauty.com/images/og-image.png">
+  <meta property="og:url" content="https://florarybeauty.com/about.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://florarybeauty.com/images/og-image.png">
   <link rel="stylesheet" href="styles.css">
   <style>
     /* About Hero */
@@ -55,6 +63,10 @@
     .promise .section-title { color: var(--white); }
     .promise p { color: rgba(255,255,255,0.7); font-size: 1.05rem; max-width: 600px; margin: 0 auto 24px; line-height: 1.8; }
     .promise-badges { display: flex; gap: 32px; justify-content: center; margin-top: 40px; flex-wrap: wrap; }
+
+    @media (max-width: 480px) {
+      .promise-badges { gap: 16px; }
+    }
     .promise-badge { display: flex; flex-direction: column; align-items: center; gap: 8px; }
     .promise-badge-icon { width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
     .promise-badge-text { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; color: rgba(255,255,255,0.7); }

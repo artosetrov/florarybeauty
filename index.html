@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FLORARY Beauty — Premium Korean Collagen Eye Patches</title>
   <meta name="description" content="Transform your under-eye area with FLORARY's luxury collagen eye patches. Infused with marine collagen, hyaluronic acid, and 24K gold. Korean beauty innovation.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:title" content="FLORARY Beauty — Premium Korean Collagen Eye Patches">
+  <meta property="og:description" content="100% natural collagen eye patches from Seoul. Marine collagen, hyaluronic acid & 24K gold.">
+  <meta property="og:image" content="https://florarybeauty.com/images/og-image.png">
+  <meta property="og:url" content="https://florarybeauty.com">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FLORARY Beauty — Premium Korean Collagen Eye Patches">
+  <meta name="twitter:description" content="100% natural collagen eye patches from Seoul. Marine collagen, hyaluronic acid & 24K gold.">
+  <meta name="twitter:image" content="https://florarybeauty.com/images/og-image.png">
   <link rel="stylesheet" href="styles.css">
   <style>
     /* ---- Hero ---- */
@@ -434,10 +444,29 @@
     <div class="cta-img reveal-scale"><img src="images/11-floating-jar.webp" alt="FLORARY jar"></div>
     <h2 class="section-title reveal">Be Among the First to <br>Experience FLORARY</h2>
     <p class="reveal">Join our founding customers and get exclusive 20% off on launch day. Limited to the first 500 members.</p>
-    <form onsubmit="event.preventDefault();this.innerHTML='<div style=&quot;font-size:2rem;margin-bottom:12px&quot;>&#10003;</div><p style=&quot;font-size:1.1rem;color:rgba(255,255,255,0.9)&quot;>You&#39;re on the list! Check your email for confirmation.</p>';return false;" class="waitlist-form reveal">
-      <input type="email" placeholder="Your email address" required class="waitlist-input">
+    <form class="waitlist-form reveal" id="waitlist-form">
+      <input type="hidden" name="_subject" value="New FLORARY Waitlist Signup!">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="email" name="email" placeholder="Your email address" required class="waitlist-input">
       <button type="submit" class="btn btn-gold" style="border:none;cursor:pointer;">Get 20% Off &rarr;</button>
     </form>
+    <script>
+    document.getElementById('waitlist-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var form = this;
+      var email = form.querySelector('input[name="email"]').value;
+      fetch('https://formsubmit.co/ajax/osetrov.artem@gmail.com', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json','Accept': 'application/json'},
+        body: JSON.stringify({email: email, _subject: 'New FLORARY Waitlist Signup!'})
+      }).then(function(r){return r.json()}).then(function(){
+        form.innerHTML = '<div style="font-size:2rem;margin-bottom:12px">&#10003;</div><p style="font-size:1.1rem;color:rgba(255,255,255,0.9)">You\'re on the list! Check your email for confirmation.</p>';
+      }).catch(function(){
+        form.innerHTML = '<div style="font-size:2rem;margin-bottom:12px">&#10003;</div><p style="font-size:1.1rem;color:rgba(255,255,255,0.9)">You\'re on the list! Check your email for confirmation.</p>';
+      });
+    });
+    </script>
     <p class="reveal" style="margin-top:16px;font-size:0.8rem;opacity:0.5;">No spam. Unsubscribe anytime. Launch price: $24.99 &rarr; Your price: $19.99</p>
   </div>
 </section>
