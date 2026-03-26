@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Story — FLORARY Beauty</title>
+  <meta name="description" content="FLORARY Beauty was born from a passion for Korean skincare innovation. Discover our story, values, and commitment to bringing luxury beauty to everyone.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* About Hero */
+    .about-hero { padding: 140px 0 80px; text-align: center; position: relative; overflow: hidden; }
+    .about-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--cream), #F0E8DC); z-index: 0; }
+    .about-hero .container { position: relative; z-index: 2; }
+    .about-hero h1 { font-size: clamp(2.5rem, 5vw, 3.8rem); margin-bottom: 20px; }
+    .about-hero h1 em { color: var(--crimson); font-style: italic; }
+    .about-hero p { font-size: 1.15rem; color: var(--text-light); max-width: 600px; margin: 0 auto; line-height: 1.8; }
+
+    /* Story section */
+    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .story-img { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); }
+    .story-img img { width: 100%; height: 400px; object-fit: cover; }
+    .story-text h2 { font-size: 2rem; margin-bottom: 16px; }
+    .story-text p { font-size: 1rem; color: var(--text-light); line-height: 1.8; margin-bottom: 16px; }
+
+    /* Values */
+    .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 48px; }
+    .value-card { background: var(--white); border-radius: var(--radius); padding: 40px 28px; text-align: center; border-bottom: 3px solid transparent; transition: var(--transition); }
+    .value-card:hover { border-bottom-color: var(--crimson); transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .value-icon { font-size: 2.5rem; margin-bottom: 16px; }
+    .value-card h3 { font-family: 'Inter', sans-serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 12px; }
+    .value-card p { font-size: 0.9rem; color: var(--text-light); line-height: 1.7; }
+
+    /* Timeline */
+    .timeline { position: relative; max-width: 700px; margin: 48px auto 0; }
+    .timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: var(--border); transform: translateX(-50%); }
+    .timeline-item { display: flex; gap: 24px; margin-bottom: 40px; position: relative; }
+    .timeline-item:nth-child(odd) { flex-direction: row-reverse; text-align: right; }
+    .timeline-dot { width: 16px; height: 16px; border-radius: 50%; background: var(--crimson); border: 3px solid var(--cream); position: absolute; left: 50%; top: 8px; transform: translateX(-50%); z-index: 2; }
+    .timeline-content { width: 45%; }
+    .timeline-year { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--crimson); margin-bottom: 4px; }
+    .timeline-content h4 { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+    .timeline-content p { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; }
+
+    /* Ingredients deep dive */
+    .ing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 48px; }
+    .ing-card { background: var(--white); border-radius: var(--radius); padding: 28px; border-left: 4px solid var(--gold); }
+    .ing-card h4 { font-family: 'Inter', sans-serif; font-weight: 600; margin-bottom: 8px; }
+    .ing-card p { font-size: 0.9rem; color: var(--text-light); line-height: 1.7; }
+    .ing-card .pct { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--crimson); margin-bottom: 8px; }
+
+    /* Promise */
+    .promise { background: var(--navy); color: var(--white); text-align: center; }
+    .promise .section-label { color: var(--gold); }
+    .promise .section-label::before { background: var(--gold); }
+    .promise .section-title { color: var(--white); }
+    .promise p { color: rgba(255,255,255,0.7); font-size: 1.05rem; max-width: 600px; margin: 0 auto 24px; line-height: 1.8; }
+    .promise-badges { display: flex; gap: 32px; justify-content: center; margin-top: 40px; flex-wrap: wrap; }
+    .promise-badge { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .promise-badge-icon { width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+    .promise-badge-text { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; color: rgba(255,255,255,0.7); }
+
+    @media (max-width: 768px) {
+      .story-grid { grid-template-columns: 1fr; }
+      .timeline::before { left: 20px; }
+      .timeline-dot { left: 20px; }
+      .timeline-item, .timeline-item:nth-child(odd) { flex-direction: column; padding-left: 48px; text-align: left; }
+      .timeline-content { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="preloader"><div class="preloader-logo">FLORARY</div><div class="preloader-bar"></div></div>
+<div class="scroll-progress"></div>
+
+<nav class="nav">
+  <div class="nav-overlay"></div>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">FLORARY</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="product.html">Product</a>
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="product.html" class="nav-cta">Shop Now</a>
+    </div>
+    <div class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open');document.querySelector('.nav-overlay').classList.toggle('show')">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- About Hero -->
+<section class="about-hero">
+  <div class="container">
+    <div class="section-label reveal">Our Story</div>
+    <h1 class="reveal">100% Natural. <br>100% <em>Korean</em>.</h1>
+    <p class="reveal">FLORARY was born from one obsession: bringing the purest, cleanest Korean skincare formulas to women worldwide &mdash; with zero compromise on ingredients.</p>
+  </div>
+</section>
+
+<!-- Origin Story -->
+<section class="section" style="background: var(--white);">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-img reveal-left">
+        <img src="images/7-korean-lab.webp" alt="Korean cosmetic laboratory">
+      </div>
+      <div class="story-text reveal-right">
+        <div class="section-label">The Beginning</div>
+        <h2>From Seoul's Clean Labs to Your Vanity</h2>
+        <div class="gold-line"></div>
+        <p>It started with a trip to Seoul. Walking through Myeongdong and Gangnam, we discovered a world where skincare is an art &mdash; every product crafted with intention, precision, and deep respect for natural ingredients. Korean labs don't cut corners. They don't fill formulas with cheap synthetics.</p>
+        <p>We saw that the cleanest, most effective Korean eye treatments were either impossibly expensive or completely unavailable outside Asia. Meanwhile, Western brands sold "natural" patches full of parabens and synthetic fragrances.</p>
+        <p>FLORARY exists to fix that. We partnered directly with Seoul's top GMP-certified laboratories to create a 100% natural collagen eye patch &mdash; no parabens, no sulfates, no compromise. Every ingredient is organic or naturally derived. Period.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Values -->
+<section class="section">
+  <div class="container text-center">
+    <div class="section-label reveal">Our Values</div>
+    <h2 class="section-title reveal">What We Stand For</h2>
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <div class="value-icon">&#127793;</div>
+        <h3>100% Natural</h3>
+        <p>Zero parabens. Zero sulfates. Zero synthetic fragrances. Every single ingredient is natural or organically sourced &mdash; verified by independent testing.</p>
+      </div>
+      <div class="value-card reveal" style="transition-delay: 0.1s;">
+        <div class="value-icon">&#128300;</div>
+        <h3>Korean R&D Excellence</h3>
+        <p>Formulated by Seoul's leading dermatologists in GMP-certified laboratories with 30+ years of hydrogel innovation and K-beauty research.</p>
+      </div>
+      <div class="value-card reveal" style="transition-delay: 0.2s;">
+        <div class="value-icon">&#128062;</div>
+        <h3>Cruelty Free</h3>
+        <p>We never test on animals. Period. Our commitment to ethical beauty extends through every step of our supply chain.</p>
+      </div>
+      <div class="value-card reveal" style="transition-delay: 0.3s;">
+        <div class="value-icon">&#127758;</div>
+        <h3>Sustainable</h3>
+        <p>From recyclable packaging to eco-conscious production, we're committed to beauty that doesn't cost the earth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section class="section" style="background: var(--white);">
+  <div class="container text-center">
+    <div class="section-label reveal">Our Journey</div>
+    <h2 class="section-title reveal">The FLORARY Story</h2>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-year">2024</div>
+          <h4>The Discovery</h4>
+          <p>A transformative trip to Seoul's beauty labs sparks the vision for accessible luxury Korean skincare.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-year">2025</div>
+          <h4>Formula Perfected</h4>
+          <p>After 50+ formula iterations with Korean cosmetic scientists, the signature FLORARY collagen patch is born.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-year">2026</div>
+          <h4>Launch</h4>
+          <p>FLORARY officially launches, bringing premium Korean collagen eye patches to beauty lovers worldwide.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ingredients -->
+<section id="ingredients" class="section">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-label reveal">The Science</div>
+      <h2 class="section-title reveal">Ingredients That <span class="gradient-text">Transform</span></h2>
+    </div>
+    <div class="ing-grid">
+      <div class="ing-card reveal">
+        <div class="pct">5000 Da</div>
+        <h4>Marine Collagen Peptides</h4>
+        <p>Ultra-small molecular weight for maximum skin penetration. Rebuilds collagen matrix and smooths fine lines from within.</p>
+      </div>
+      <div class="ing-card reveal" style="transition-delay: 0.1s;">
+        <div class="pct">3x HA</div>
+        <h4>Triple Hyaluronic Acid</h4>
+        <p>Three molecular weights target different skin layers — surface hydration, mid-level plumping, and deep moisture retention.</p>
+      </div>
+      <div class="ing-card reveal" style="transition-delay: 0.2s;">
+        <div class="pct">24K</div>
+        <h4>Gold Nanoparticles</h4>
+        <p>Pure 24-karat gold boosts microcirculation, delivering nutrients deep into skin while providing powerful antioxidant protection.</p>
+      </div>
+      <div class="ing-card reveal" style="transition-delay: 0.3s;">
+        <div class="pct">95%</div>
+        <h4>Green Tea Polyphenols</h4>
+        <p>EGCG concentration at 95% purity provides exceptional anti-inflammatory action and free radical defense.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Promise -->
+<section class="section promise">
+  <div class="container">
+    <div class="section-label reveal">Our Promise</div>
+    <h2 class="section-title reveal">The FLORARY Guarantee</h2>
+    <p class="reveal">We stand behind every jar of our 100% natural Korean formula. If you don't see visible results within 30 days, we'll give you a full refund. No questions asked.</p>
+    <div class="promise-badges reveal">
+      <div class="promise-badge">
+        <div class="promise-badge-icon">&#128737;</div>
+        <div class="promise-badge-text">30-Day Guarantee</div>
+      </div>
+      <div class="promise-badge">
+        <div class="promise-badge-icon">&#128230;</div>
+        <div class="promise-badge-text">Free Shipping</div>
+      </div>
+      <div class="promise-badge">
+        <div class="promise-badge-icon">&#127468;&#127474;</div>
+        <div class="promise-badge-text">GMP Certified</div>
+      </div>
+      <div class="promise-badge">
+        <div class="promise-badge-icon">&#129516;</div>
+        <div class="promise-badge-text">Derma Tested</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><span class="nav-logo">FLORARY</span><p>100% natural Korean collagen eye patches. Zero parabens. Zero compromise. Crafted in Seoul for women who demand clean beauty.</p></div>
+      <div><h4>Shop</h4><ul><li><a href="product.html">Eye Patches</a></li><li><a href="product.html">Gift Sets</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="about.html">Our Story</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h4>Support</h4><ul><li><a href="contact.html">FAQ</a></li><li><a href="contact.html">Shipping</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 FLORARY Beauty. All rights reserved.</span><div class="footer-socials"><a href="#">IG</a><a href="#">TT</a><a href="#">PI</a></div></div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
