@@ -100,14 +100,21 @@
     .cta-img img { border-radius: var(--radius); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
 
     @media (max-width: 768px) {
-      .hero-grid { grid-template-columns: 1fr; text-align: center; }
-      .hero-desc, .hero-buttons { justify-content: center; }
-      .hero-stats { justify-content: center; }
-      .hero-img-wrapper { max-width: 400px; margin: 0 auto; }
+      .hero { min-height: auto; padding: 100px 0 60px; }
+      .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 32px; }
+      .hero-desc { margin-left: auto; margin-right: auto; font-size: 1rem; }
+      .hero-buttons { justify-content: center; }
+      .hero-stats { justify-content: center; gap: 24px; flex-wrap: wrap; }
+      .hero-stat-num { font-size: 1.5rem; }
+      .hero-img-wrapper { max-width: 320px; margin: 0 auto; }
       .hero-float-badge { display: none; }
+      .hero-badge { font-size: 0.65rem; padding: 6px 14px; }
       .ingredients-layout { grid-template-columns: 1fr; }
       .lifestyle-grid { grid-template-columns: 1fr; }
       .korean-stats { gap: 24px; }
+      .steps-grid { grid-template-columns: 1fr; gap: 24px; }
+      .step-connector { display: none; }
+      .step-num { font-size: 2.5rem; }
     }
   </style>
 </head>
@@ -237,13 +244,13 @@
 <!-- Clean Formula -->
 <section class="section" style="background: linear-gradient(135deg, #F0F7F4 0%, var(--cream) 100%);">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+    <div class="clean-grid">
       <div>
         <div class="section-label reveal-left">Clean Beauty Promise</div>
         <h2 class="section-title reveal-left">What We <span class="gradient-text">Never</span> Use</h2>
         <div class="gold-line reveal-left"></div>
         <p style="color:var(--text-light);line-height:1.8;margin-bottom:24px;" class="reveal-left">Every FLORARY formula is 100% clean, natural, and free from harmful chemicals. We believe your skin deserves only the purest ingredients &mdash; sourced from nature, perfected in Seoul.</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;" class="reveal-left">
+        <div class="never-use-grid reveal-left">
           <div style="display:flex;align-items:center;gap:10px;padding:12px 16px;background:var(--white);border-radius:10px;font-size:0.9rem;"><span style="color:#E74C3C;font-size:1.1rem;">&#10006;</span> Parabens</div>
           <div style="display:flex;align-items:center;gap:10px;padding:12px 16px;background:var(--white);border-radius:10px;font-size:0.9rem;"><span style="color:#E74C3C;font-size:1.1rem;">&#10006;</span> Sulfates (SLS/SLES)</div>
           <div style="display:flex;align-items:center;gap:10px;padding:12px 16px;background:var(--white);border-radius:10px;font-size:0.9rem;"><span style="color:#E74C3C;font-size:1.1rem;">&#10006;</span> Phthalates</div>
@@ -380,7 +387,7 @@
     <div class="section-label reveal">Why Korean?</div>
     <h2 class="section-title reveal">Korea: The World Capital of <span class="gradient-text">Skincare</span></h2>
     <p class="section-subtitle mx-auto reveal">South Korea invests more in skincare R&amp;D than any other country. Korean women pioneered the 10-step routine, advanced fermentation technology, and hydrogel innovation. When it comes to eye care, Seoul leads the world.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:20px;margin-top:40px;">
+    <div class="why-korean-grid">
       <div class="card reveal" style="padding:28px;text-align:center;">
         <div style="font-size:2rem;margin-bottom:8px;">&#127470;&#127472;</div>
         <div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--crimson);">#1</div>
@@ -427,8 +434,8 @@
     <div class="cta-img reveal-scale"><img src="images/11-floating-jar.webp" alt="FLORARY jar"></div>
     <h2 class="section-title reveal">Be Among the First to <br>Experience FLORARY</h2>
     <p class="reveal">Join our founding customers and get exclusive 20% off on launch day. Limited to the first 500 members.</p>
-    <form onsubmit="event.preventDefault();this.innerHTML='<div style=&quot;font-size:2rem;margin-bottom:12px&quot;>&#10003;</div><p style=&quot;font-size:1.1rem;color:rgba(255,255,255,0.9)&quot;>You&#39;re on the list! Check your email for confirmation.</p>';return false;" style="display:flex;gap:12px;max-width:480px;margin:0 auto;flex-wrap:wrap;justify-content:center;" class="reveal">
-      <input type="email" placeholder="Your email address" required style="flex:1;min-width:240px;padding:16px 20px;border-radius:50px;border:2px solid rgba(255,255,255,0.5);background:rgba(255,255,255,0.2);color:white;font-family:'Inter',sans-serif;font-size:0.95rem;outline:none;backdrop-filter:blur(4px);">
+    <form onsubmit="event.preventDefault();this.innerHTML='<div style=&quot;font-size:2rem;margin-bottom:12px&quot;>&#10003;</div><p style=&quot;font-size:1.1rem;color:rgba(255,255,255,0.9)&quot;>You&#39;re on the list! Check your email for confirmation.</p>';return false;" class="waitlist-form reveal">
+      <input type="email" placeholder="Your email address" required class="waitlist-input">
       <button type="submit" class="btn btn-gold" style="border:none;cursor:pointer;">Get 20% Off &rarr;</button>
     </form>
     <p class="reveal" style="margin-top:16px;font-size:0.8rem;opacity:0.5;">No spam. Unsubscribe anytime. Launch price: $24.99 &rarr; Your price: $19.99</p>

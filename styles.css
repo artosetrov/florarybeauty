@@ -173,9 +173,64 @@ img { max-width: 100%; height: auto; display: block; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
   .section { padding: 60px 0; }
+
+  /* Clean Formula */
+  .clean-grid { grid-template-columns: 1fr; gap: 32px; }
+  .never-use-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+
+  /* Why Korean */
+  .why-korean-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+
+  /* Hero buttons */
+  .btn { padding: 14px 28px; font-size: 0.8rem; }
+
+  /* Korean stats */
+  .korean-stat-num { font-size: 1.8rem !important; }
+  .korean-stats { flex-wrap: wrap; }
+
+  /* Waitlist */
+  .waitlist-form { padding: 0 16px; }
+  .waitlist-input { min-width: 100% !important; }
+
+  /* Hero trust badges */
+  .hero-trust-badges { justify-content: center; }
 }
+
 @media (max-width: 480px) {
   .footer-grid { grid-template-columns: 1fr; }
+
+  /* Clean Formula items */
+  .never-use-grid { grid-template-columns: 1fr; }
+
+  /* Why Korean */
+  .why-korean-grid { grid-template-columns: 1fr 1fr; }
+
+  /* Hero */
+  .btn { padding: 12px 24px; font-size: 0.78rem; width: 100%; justify-content: center; }
+  .hero-buttons { flex-direction: column; align-items: stretch; }
+
+  /* Korean stats */
+  .korean-stat-num { font-size: 1.5rem !important; }
+  .korean-stats { gap: 16px !important; }
+
+  /* Section titles */
+  .section-title { font-size: 1.6rem; }
+}
+
+/* ---- Clean Formula grid ---- */
+.clean-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.never-use-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+/* ---- Why Korean grid ---- */
+.why-korean-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 40px; }
+
+/* ---- Waitlist form ---- */
+.waitlist-form { display: flex; gap: 12px; max-width: 480px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+.waitlist-input {
+  flex: 1; min-width: 240px; padding: 16px 20px; border-radius: 50px;
+  border: 2px solid rgba(255,255,255,0.5); background: rgba(255,255,255,0.2);
+  color: white; font-family: 'Inter', sans-serif; font-size: 0.95rem;
+  outline: none; backdrop-filter: blur(4px);
 }
 
 /* ---- Utility ---- */
